@@ -2,7 +2,7 @@ Path Traversal
 
 
 
-##Exploit
+## Exploit
 
 ----
 
@@ -13,6 +13,6 @@ Path Traversal
 
 
 
-##Fix 
+## Fix 
 
 ----

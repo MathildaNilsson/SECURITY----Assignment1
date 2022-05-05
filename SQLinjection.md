@@ -2,8 +2,7 @@ SQL injection
 Login
 
 
-
-##Exploit:
+## Exploit:
 
 ------
 
@@ -13,9 +12,7 @@ Login
 4.	Tryck på loggin då lyckas användaren logga in på Brads konto utan att använda ett riktigt lösenord.
 
 
-
-
-##Vulnerabilty: 
+## Vulnerabilty: 
 
 ------
 
@@ -46,9 +43,7 @@ Vilket resulterar i att SQL kommandot kommer hämta Brads id och sätta det som 
 
 
 
-
-
-##Fix:
+## Fix:
 
 ------
 
@@ -74,7 +69,7 @@ PreparedStatements kommer att tolka inputen som värden
 
 
 --------
-#Anteckningar <br>
+# Anteckningar <br>
 Varför fungerade lösningen?
 Ska inte gå att bryta sig ur, användarens input tolkas som värden. 
 Ersätter '' till "", 
