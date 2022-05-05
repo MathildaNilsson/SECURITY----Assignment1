@@ -1,6 +1,8 @@
 SQL injection
 Login
 
+
+
 ##Exploit:
 
 ------
@@ -9,6 +11,9 @@ Login
 2.	Använd dennes befintliga användarnamn ex: Brad.
 3.	Ta Brad och använd hans användarnamn som: Brad'--
 4.	Tryck på loggin då lyckas användaren logga in på Brads konto utan att använda ett riktigt lösenord.
+
+
+
 
 ##Vulnerabilty: 
 
@@ -41,6 +46,8 @@ Vilket resulterar i att SQL kommandot kommer hämta Brads id och sätta det som 
 
 
 
+
+
 ##Fix:
 
 ------
@@ -60,6 +67,9 @@ Vi täpper igen säkerhetshålet genom att använda oss av PreparedStatement:
 
 Genom att använda oss av PreparedStatements kan vi begränsa användarinput i inloggningsformuläret. 
 PreparedStatements kommer att tolka inputen som värden 
+
+
+
 
 
 

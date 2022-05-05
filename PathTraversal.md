@@ -1,5 +1,7 @@
 Path Traversal
 
+
+
 ##Exploit
 
 ----
@@ -8,6 +10,8 @@ Path Traversal
 ## Vulnerability 
 
 ----
+
+
 
 ##Fix 
 
