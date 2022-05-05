@@ -32,7 +32,13 @@ Sårbarheten i koden ligger i metoden `login`:
             context.redirect("/");
         }
 
-lägg till -- för att undvika resten av SQL. 
+När hackern använder sig av det stulna användarnamnet och lägger till: -- gör man detta för att 
+använda sig av SQL kommentars syntax. Det som matas in efter och hämtas av SQL queryt -- kommer bli bortkommenterat. 
+<br>
+Detta funkar pga att applikationen använder sig av ren SQL i executeQuery.
+Detta betyder att lägger hackern in "Brad-- " kommer SQL queryt bli: SELECT id FROM user WHERE username = 'Brad'; <br>
+Vilket resulterar i att SQL kommandot kommer hämta Brads id och sätta det som inloggad och hackern får åtkomst till hela Brads konto. 
+
 
 
 ##Fix:
@@ -52,6 +58,13 @@ Vi täpper igen säkerhetshålet genom att använda oss av PreparedStatement:
         context.sessionAttribute("username", username);
         context.redirect("/");
 
+Genom att använda oss av PreparedStatements kan vi begränsa användarinput i inloggningsformuläret. 
+PreparedStatements kommer att tolka inputen som värden 
+
+
+
+--------
+#Anteckningar <br>
 Varför fungerade lösningen?
 Ska inte gå att bryta sig ur, användarens input tolkas som värden. 
 Ersätter '' till "", 

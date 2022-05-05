@@ -1,1 +1,14 @@
-# Assignment1
+Path Traversal
+
+##Exploit
+
+----
+
+
+## Vulnerability 
+
+----
+
+##Fix 
+
+----
