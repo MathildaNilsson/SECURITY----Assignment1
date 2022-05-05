@@ -26,11 +26,6 @@ Sårbarheten i koden ligger i metoden `login`:
                 "SELECT id FROM user WHERE username = '" + username + "' AND password = " + "'" + password + "'"
         );
 
-        if (rows.next()) {
-            context.sessionAttribute("userId", rows.getInt("id"));
-            context.sessionAttribute("username", username);
-            context.redirect("/");
-        }
 
 När hackern använder sig av det stulna användarnamnet och lägger till: `--` gör man detta för att 
 använda sig av SQL kommentars syntax. Det som matas in efter och hämtas av SQL queryt -- kommer bli bortkommenterat. 
@@ -39,7 +34,7 @@ Detta funkar pga att applikationen använder sig av ren SQL i executeQuery.
 Username sätts på första raden i metoden `String username = context.formParam("username");` där användarens inmatning tas 
 in och styr hela SQL raden i `ResultSet rows = s.executeQuery(SELECT id FROM user WHERE username = '")`.
 <br><br>
-Detta betyder att lägger hackern in `Brad--`  kommer SQL queryt bli: <br> `SELECT id FROM user WHERE username = 'Brad';` <br>
+Detta betyder att lägger hackern in `Brad--`  kommer SQL queryt ändras till: <br> `SELECT id FROM user WHERE username = 'Brad';` <br>
 Vilket resulterar i att SQL kommandot kommer hämta Brads id och sätta det som inloggad och hackern får åtkomst till hela Brads konto. 
 
 
@@ -72,5 +67,6 @@ varje värde som en satt sträng.
 Varför fungerade lösningen?
 Ska inte gå att bryta sig ur, användarens input tolkas som värden och inte som SQL query.
 Ersätter '' till "", 
+Queryn sätts innan värdena. 
 
 Mer specifikt vilket kodstycke som gör vad..
