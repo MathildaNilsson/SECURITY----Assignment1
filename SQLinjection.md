@@ -14,7 +14,7 @@ Login
 
 ------
 
-Sårbarheten i koden ligger i metoden login:
+Sårbarheten i koden ligger i metoden `login`:
 
      private static void login(Context context) throws SQLException {
      String username = context.formParam("username");
@@ -31,6 +31,8 @@ Sårbarheten i koden ligger i metoden login:
             context.sessionAttribute("username", username);
             context.redirect("/");
         }
+
+lägg till -- för att undvika resten av SQL. 
 
 
 ##Fix:
@@ -49,3 +51,7 @@ Vi täpper igen säkerhetshålet genom att använda oss av PreparedStatement:
         context.sessionAttribute("userId", rows.getInt("id"));
         context.sessionAttribute("username", username);
         context.redirect("/");
+
+Varför fungerade lösningen?
+Ska inte gå att bryta sig ur, användarens input tolkas som värden. 
+Ersätter '' till "", 
