@@ -6,7 +6,7 @@ Login
 
 
 1.	Hitta någon som har ett befintligt konto på hemsidan (`http://localhost:8080/`).
-2.	Använd dennes befintliga användarnamn ex: Brad.
+2.	Använd dennes befintliga användarnamn ex: Brad
 3.	Ta Brad och använd hans användarnamn som: `Brad'--`
 4.	Tryck på loggin då lyckas användaren logga in på Brads konto utan att använda ett riktigt lösenord.
 
@@ -37,7 +37,7 @@ använda sig av SQL kommentars syntax. Det som matas in efter och hämtas av SQL
 <br>
 Detta funkar pga att applikationen använder sig av ren SQL i executeQuery. 
 Username sätts på första raden i metoden `String username = context.formParam("username");` där användarens inmatning tas 
-in och styr hela SQL raden i `ResultSet rows = s.executeQuery(SQL statement)`.
+in och styr hela SQL raden i `ResultSet rows = s.executeQuery(SELECT id FROM user WHERE username = '")`.
 <br><br>
 Detta betyder att lägger hackern in `Brad--`  kommer SQL queryt bli: <br> `SELECT id FROM user WHERE username = 'Brad';` <br>
 Vilket resulterar i att SQL kommandot kommer hämta Brads id och sätta det som inloggad och hackern får åtkomst till hela Brads konto. 
@@ -57,7 +57,7 @@ Vi täpper igen säkerhetshålet genom att använda oss av PreparedStatement:
 
 
 Genom att använda oss av PreparedStatements kan vi begränsa användarinput i inloggningsformuläret. 
-PreparedStatements kommer att tolka inputen som värden 
+PreparedStatements kommer att tolka inputen som värden och inte som ett rent SQL query. 
 
 
 
