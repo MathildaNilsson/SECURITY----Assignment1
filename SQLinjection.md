@@ -4,7 +4,6 @@ Login
 
 ## Exploit:
 
-------
 
 1.	Hitta någon som har ett befintligt konto på hemsidan (`http://localhost:8080/`).
 2.	Använd dennes befintliga användarnamn ex: Brad.
@@ -14,7 +13,6 @@ Login
 
 ## Vulnerabilty: 
 
-------
 
 Sårbarheten i koden ligger i metoden `login`:
 
@@ -44,8 +42,6 @@ Vilket resulterar i att SQL kommandot kommer hämta Brads id och sätta det som 
 
 
 ## Fix:
-
-------
 
 Vi täpper igen säkerhetshålet genom att använda oss av PreparedStatement:
 
