@@ -7,8 +7,7 @@ Path Traversal
 2. Logga in och välj `publish article`
 3. I fönstret för att döpa sitt nya dokument lägg in:  `../secrets/passwords.txt` och
    tryck på publisera.
-4. Då har man lyckats att ta dig in i en annan mapp i applikationen och skriva över det 
-befintliga dokumentet eller skapat ett nytt om det inte redan finns ett med samma namn. 
+4. Då har man lyckats att ta sig in i en annan mapp i applikationen och lägga till ett nytt dokument där eller skriva över ett befintligt om det redan finns ett med samma namn.
 
 
 
@@ -36,7 +35,7 @@ Sårbarheten finns i metoden ``publish``:
 Detta går att göra för att `String filename` sätts in av användaren genom en `context.formParam`.
 När man sedan sätter Path så adderas bara användarens input med `"stories/"` där utvecklaren hade tänkt att alla nya
 dokument skulle sättas in. <br>
-Genom att hackern använder sig av `../` innan den anger filnamnet kan den manipulera filename i Path och ändra riktningen på Path till en helt annan mapp. 
+Genom att hackern använder sig av `../` innan den anger filnamnet kan den manipulera filename och ändra riktningen på Path till en helt annan mapp. 
 Vilket resulterar i att man både kan lägga nya filer inne i andra mappar än den tänkta (`stories/`) och man kan även skriva över redan befintliga filer.
 
 

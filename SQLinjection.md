@@ -42,7 +42,6 @@ in och styr hela SQL raden i `ResultSet rows = s.executeQuery(SELECT id FROM use
 Detta betyder att lägger hackern in `Brad--`  kommer SQL queryt bli: <br> `SELECT id FROM user WHERE username = 'Brad';` <br>
 Vilket resulterar i att SQL kommandot kommer hämta Brads id och sätta det som inloggad och hackern får åtkomst till hela Brads konto. 
 
-Vilken del i koden gör vad?
 
 
 ## Fix:
@@ -57,7 +56,11 @@ Vi täpper igen säkerhetshålet genom att använda oss av PreparedStatement:
 
 
 Genom att använda oss av PreparedStatements kan vi begränsa användarinput i inloggningsformuläret. 
-PreparedStatements kommer att tolka inputen som värden och inte som ett rent SQL query. 
+PreparedStatements kommer att tolka inputen som värden och inte som ett rent SQL query där `'` används som fritext och
+som en hacker kan utnyttja och sätta in eget `'` för att ändra queryt. <br><br>
+Utan det som PreparedStatement hjälper oss att göra är vi specificerar vart i queryt vi vill ha användarens input med ``?``.<br>
+Vi kan sedan med hjälp av PreparedStatement specificera vad vi vill ha för värde på varje ``?`` med `SetString` och applikationen kommer då att endast tolka
+varje värde som en satt sträng. 
 
 
 
