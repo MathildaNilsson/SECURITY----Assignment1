@@ -47,3 +47,7 @@ Filename sätts in av användaren på hemsidan.
 
 Begränsa vad för input användaren kan skriva in. 
 
+Finns det vägar runt? 
+
+..././ ... Lösningsförslag? Ligger filen i den mappen? boken/lösningsförlag 
+
