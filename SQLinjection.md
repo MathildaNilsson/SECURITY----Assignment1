@@ -59,14 +59,3 @@ varje värde som en satt sträng.
 
 
 
-
-
-
---------
-# Anteckningar <br>
-Varför fungerade lösningen?
-Ska inte gå att bryta sig ur, användarens input tolkas som värden och inte som SQL query.
-Ersätter '' till "", 
-Queryn sätts innan värdena. 
-
-Mer specifikt vilket kodstycke som gör vad..

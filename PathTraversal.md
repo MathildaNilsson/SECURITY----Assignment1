@@ -65,3 +65,6 @@ Finns det vägar runt?
 ..././ ... Lösningsförslag? Ligger filen i den mappen? boken/lösningsförlag 
 
 Filename sätts in av användaren på hemsidan. 
+
+Varför fungerade lösningen?
+Vilken kod gör vad?
