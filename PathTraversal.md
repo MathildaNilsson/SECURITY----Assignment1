@@ -42,18 +42,9 @@ om man döper det nya dokumentet till samma namn som ett redan befintligt dokume
 
 
 
-## Fix 
+## Fix
 
-        String filename = context.formParam("filename");
-        String text = context.formParam("text");
-
-        if(filename.contains("../")){
-            filename = "";
-        }
-
----
-
-Istället lägger vi till följande kod i metoden `publish`:
+Vi lägger till följande kod i metoden `publish`:
 
     private static void publish(Context context) throws IOException {
         String filename = context.formParam("filename");
