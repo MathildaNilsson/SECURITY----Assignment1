@@ -92,7 +92,3 @@ toPath().toRealPath() is checking the validity but the file needs to exist,
 skapa en path av en riktig path och få dens referens. 
 
 return för att få ut felmeddelandet. 
-
-// Since the path where we want to save the story does not exist yet, we cannot use `toRealPath` because it
-// requires the file to exist. Instead, we can use `toAbsolutePath` followed by `normalize` in order to
-// achieve the same result with files that might not exist.
