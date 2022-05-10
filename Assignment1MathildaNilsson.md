@@ -45,7 +45,6 @@ Vi lägger till följande kod i metoden `publish`:
     private static void publish(Context context) throws IOException {
         String filename = context.formParam("filename");
         String text = context.formParam("text");
-
         Path path = Path.of("stories/" + filename).toAbsolutePath().normalize();
         Path folder = Path.of("stories").toRealPath();
 
