@@ -1,11 +1,13 @@
-Path Traversal
+Path Traversal <br>
+Publish article <br>
+Mathilda Nilsson
 
 
 
 ## Exploit
 1. Gå till hemsidan (`http://localhost:8080/`)
-2. Logga in och välj `publish a short story` för att skapa en ny artikel.
-3. I fönstret för att döpa sitt nya dokument lägg in:  `../secrets/passwords.txt` och
+2. Logga in en användare och välj `publish a short story` för att skapa en ny artikel.
+3. I fältet för att döpa sitt nya dokument lägg in:  `../secrets/passwords.txt` och
    tryck på publisera.
 4. Då har man lyckats att ta sig in i en annan mapp i applikationen och lägga till ett nytt dokument där eller skriva över ett befintligt om det redan finns ett med samma namn.
 
@@ -24,13 +26,7 @@ Sårbarheten finns i metoden ``publish``:
 
          String title = firstLine(path.toFile());
          String url = "/?story=" + filename;
-         String content =
-            "<h1>Your short story has been published!</h1>" +
-            "<p>Read it here: <a href='" + url + "'>" + title + "</p>" +
-            "<p><a href='/'>Return to main page</a></p>";
-         String html = template("Short Story Published!", content);
-         context.result(html);
-     }
+
 
 Detta går att göra för att `String filename` sätts in av användaren genom en `context.formParam`.
 När man sedan sätter Path så adderas bara användarens input med `"stories/"` där utvecklaren hade tänkt att alla nya
