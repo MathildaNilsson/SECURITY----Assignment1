@@ -9,7 +9,7 @@ Mathilda Nilsson
 2. Logga in en användare och välj `publish a short story` för att skapa en ny artikel.
 3. I fältet för att döpa sitt nya dokument lägg in:  `../secrets/passwords.txt` och
    tryck på publisera.
-4. Då har man lyckats att ta sig in i en annan mapp i applikationen och lägga till ett nytt dokument där eller skriva över ett befintligt om det redan finns ett med samma namn.
+4. Då har man lyckats att ta sig in i en annan mapp i applikationen och lägga till ett nytt dokument eller skriva över ett befintligt om det redan finns ett med samma namn.
 
 
 
