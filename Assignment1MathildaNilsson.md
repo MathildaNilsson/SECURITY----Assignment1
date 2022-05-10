@@ -55,13 +55,13 @@ Vi lägger till följande kod i metoden `publish`:
         }
 
 Vi vill kunna kontrollera vad användaren har skrivit in i `formParam("filename")` fältet
-och gör detta genom att skapa Path objekt som vi kan referera till. <br>
+och gör detta genom att skapa två Path objekt som vi kan använda som referenser för användar input och ursprungsmapp.  <br>
 Vi skapar en Path av den input vi fått av användaren i `formParam`, där vi sätter `"stories/"` + `filename` och
 använder oss av ``toAbsolutPath`` vilket kommer returnera en Path som representerar den absoluta pathen som
 ännu inte finns. Sedan använder vi oss av ``normalize`` för att returnera ett resultat av en Path som tar bort alla oväntade värden så som: `../`, `./` etc. <br>
 <br>
-Sedan skapar vi en ny Path av den folder (``"Stories/"``) vi kommer vilja referera till så vi gör detta genom att skapa en motsvarighet till ursprungs mappen. Därför använder
-vi oss av ``toRealPath`` .
+Sedan skapar vi en ny Path av mappen(``"Stories/"``) som vi kommer vilja referera till som den riktiga mappen så vi gör detta genom att skapa en motsvarighet till den som ``folder``, där vi använder
+vi oss av ``toRealPath`` för att uppnå detta. 
 <br><br>
 Genom att kontrollera att vårt nya dokument `path` som användaren namngett och som vi normaliserat motsvarar den Path vi skapat av referensen av vår `folder` kan vi säkerställa att
 användaren inte kommer runt säkerheten i applikationen och får istället ett felmeddelande som säger
