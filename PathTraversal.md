@@ -54,7 +54,7 @@ Vi lägger till följande kod i metoden `publish`:
             return;
         }
 
-Vi vill ju såklart begränsa vad användaren kan skriva in i `formParam("filename")` fältet 
+Vi vill begränsa vad användaren kan skriva in i `formParam("filename")` fältet 
 och gör detta genom att skapa Path objekt som vi kan referera till. <br>
 Vi skapar en Path av den input vi fått av användaren i `formParam`, där vi sätter `"stories/"` + `filename` och 
 använder oss av ``toAbsolutPath`` vilket kommer returnera en Path som representerar den absoluta pathen som 
