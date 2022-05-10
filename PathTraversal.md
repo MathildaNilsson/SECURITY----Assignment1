@@ -59,32 +59,12 @@ och gör detta genom att skapa Path objekt som vi kan referera till. <br>
 Vi skapar en Path av den input vi fått av användaren i `formParam`, där vi sätter `"stories/"` + `filename` och 
 använder oss av ``toAbsolutPath`` vilket kommer returnera en Path som representerar den absoluta pathen som 
 ännu inte finns. Sedan använder vi oss av ``normalize`` för att returnera ett resultat av en Path som tar bort alla oväntade värden så som: `../`, `./` etc. <br>
+<br>
+Sedan skapar vi en ny Path av den folder (``"Stories/"``) vi kommer vilja referera till så vi gör detta genom att skapa en motsvarighet till ursprungs mappen. Därför använder
+vi oss av ``toRealPath`` . 
+<br><br>
+Genom att kontrollera att vårt nya dokument `path` som användaren namngett och som vi normaliserat motsvarar den Path vi skapat av referensen av vår `folder` kan vi säkerställa att 
+användaren inte kommer runt säkerheten i applikationen och får istället ett felmeddelande som säger
+att det inte är tillåtet att komma åt andra mappar än den utvecklaren satt upp som default.
 
 
-
-
-
-------
-
-## Anteckningar
-
-Begränsa vad för input användaren kan skriva in. 
-
-Finns det vägar runt? 
-
-..././ ... Lösningsförslag? Ligger filen i den mappen? boken/lösningsförlag 
-
-Filename sätts in av användaren på hemsidan. 
-
-Varför fungerade lösningen?
-Vilken kod gör vad?
-
-toAbsolutePath: returnerar ett Path-object som representerar den absoluta Pathen. 
-
-normalize :  Return value: This method returns the resulting path or this path if it does not contain redundant name elements; an empty path is returned if this path does not have a root component and all name elements are redundant.
-.././../ tas bort. 
-
-toPath().toRealPath() is checking the validity but the file needs to exist,
-skapa en path av en riktig path och få dens referens. 
-
-return för att få ut felmeddelandet. 
